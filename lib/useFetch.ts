@@ -11,15 +11,25 @@ export async function getNewToken() {
     headers: {
       "Content-Type": "application/json",
     },
+  }).then((response:any)=>{
+    if (!response.ok) {
+      if (response.detail === "Invalid token") {
+        logout();
+        return response;
+      }
+    }
+    return response;
+  }).catch((reeason:any)=>{
+    throw new Error(reeason.message);
   });
 
   const response = await res.json();
-  if (!res.ok) {
-    if (response.detail === "Invalid token") {
-      logout();
-      return response;
-    }
-  }
+  // if (!res.ok) {
+  //   if (response.detail === "Invalid token") {
+  //     logout();
+  //     return response;
+  //   }
+  // }
   return response;
 }
 
@@ -37,10 +47,19 @@ export default function useFetch(url: string, options: any) {
           "Content-Type": "application/json",
             }
           }).then((response: any) => {
-            if (response.status === 401) {
-              throw new UnAuthorizedError("401 error");
-            }
-            return response;
+
+
+              switch (response.status) {
+                case 500: console.error('Some server error'); break;
+                case 401: console.log("123"); throw new UnAuthorizedError("401 error");
+              }
+
+              if (response.ok) {
+                return response;
+              } else {
+                
+                throw Error(response.statusText);
+              }
           })
         ).json();
         setData(data);

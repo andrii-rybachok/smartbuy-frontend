@@ -8,16 +8,18 @@ export default async function Home() {
   let loggedIn=await IsAuthorized();
   return (
     <main >
-      
-      {
-        loggedIn
-        ? 
-        <>
-          <Logout></Logout>
-          <GetAllUsers></GetAllUsers>
-        </>
-        : <Link href={"/identity/login"}>Log In</Link>
-      }
+      <section>
+        
+        {
+          loggedIn
+          ?
+          <>
+            <Logout></Logout>
+          </>
+          : <Link href={"/identity/login"}>Log In</Link>
+        }
+        <Link href={"/categories"}>See all categories</Link>
+      </section>
     </main>
   )
 }
