@@ -1,0 +1,27 @@
+.languageBlock{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 40px;
+}
+
+.language{
+    font-size: 16px;
+    color: rgba(252, 252, 252, 0.90);
+    font-weight: 400;
+    text-transform: uppercase;
+    background: transparent;
+    border: 0;
+    transition: 0.2s ease-out;
+}
+.language:hover{
+    transform: scale(1.1);
+}
+.languageActive{
+    font-family: var(--helvetica-medium);
+    font-weight: 550;
+    color: #FCFCFC;
+}
+.language:hover{
+    cursor: pointer;
+}

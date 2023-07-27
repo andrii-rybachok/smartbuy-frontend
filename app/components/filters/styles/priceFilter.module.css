@@ -1,0 +1,8 @@
+.priceValidated {
+    border: 1px solid red;
+}
+
+.priceValidated:focus {
+    outline: none;
+    border: 1px solid red;
+}

@@ -1,0 +1,65 @@
+.profilePopup {
+    position: absolute;
+    right: 0;
+    width: 225px;
+    height: 210px;
+    background: #FCFCFC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.optionList {
+    list-style: none;
+    height: 160px;
+    width: 168px;
+}
+
+.optionList>li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.optionList>li>a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 300;
+    color: #272727;
+    margin-left: 10px;
+}
+
+.optionList>li:first-child {
+    margin-bottom: 20px;
+}
+.optionList>li:last-child{
+    margin-top: 20px;
+}
+.optionList>li:first-child>a {
+    width: 111px;
+    margin: 0 6px;
+}
+
+.slideDown {
+    animation: slideDown 0.4s ease-out forwards;
+}
+
+.slideUp {
+    animation: slideUp 0.4s ease-out forwards;
+}
+
+@keyframes slideDown {
+    100% {
+        transform: translateY(70px);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(70px);
+    }
+
+    100% {
+        transform: translateY(-280px);
+    }
+}
