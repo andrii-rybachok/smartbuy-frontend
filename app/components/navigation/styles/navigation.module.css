@@ -43,12 +43,12 @@
 
 .shopCart {
     margin: 0 50px;
-    transition: 0.2s ease-out;
+    transition: 0.15s ease-out;
 }
 
 .shopCart:hover {
     cursor: pointer;
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .paused {

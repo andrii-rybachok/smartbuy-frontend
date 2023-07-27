@@ -14,7 +14,7 @@ export default function PopupOverlay({children,trigger,setTrigger ,animation}:{c
         animation(children);
         await timeout(350);
         overlay.current?.classList.replace(styles.fadeIn,styles.fadeOut);
-        await timeout(300);
+        await timeout(400);
         setTrigger(false);
     }
     return(
