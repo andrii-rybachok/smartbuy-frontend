@@ -6,8 +6,8 @@ const helveticaRoman = localFont({
          path: "../../public/fonts/HelveticaNeueCyr-Black/HelveticaNeueCyr-Roman.otf",
          style: "normal",
       },
-    
    ],
+   variable: "--helvetica-roman",
 });
 const helveticaMedium = localFont({
    src: [
@@ -15,9 +15,8 @@ const helveticaMedium = localFont({
          path: "../../public/fonts/HelveticaNeueCyr-Black/HelveticaNeueCyr-Medium.otf",
          style: "normal",
       },
-    
    ],
-   variable:"--helvetica-medium"
+   variable: "--helvetica-medium",
 });
 
 const helveticaLight = localFont({
@@ -26,16 +25,15 @@ const helveticaLight = localFont({
          path: "../../public/fonts/HelveticaNeueCyr-Black/HelveticaNeueCyr-Light.otf",
          style: "normal",
       },
-    
    ],
 });
 const sfPro = localFont({
-    src: [
-       {
-          path: "../../public/fonts/SF-Pro-Display/SF-Pro-Display-Black.otf",
-          style: "normal",
-       },
-    ],
- });
+   src: [
+      {
+         path: "../../public/fonts/SF-Pro-Display/SF-Pro-Display-Black.otf",
+         style: "normal",
+      },
+   ],
+});
 
- export {helveticaRoman,helveticaMedium,helveticaLight,sfPro}
+export { helveticaRoman, helveticaMedium, helveticaLight, sfPro };
