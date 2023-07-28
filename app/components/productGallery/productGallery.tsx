@@ -1,9 +1,16 @@
+'use client'
 import { helveticaRoman } from "@/app/styles/fonts";
 import styles from "./productGallery.module.css";
 import ProductItem from "@/app/models/products/productItem";
 import Product from "./components/product";
+import { useState } from "react";
 
 export default function ProductGallery({ tittle, products }: { tittle: string; products: ProductItem[] }) {
+
+   const [maxProducts, setMaxProducts] = useState(5);
+   function getMore(){
+    setMaxProducts(10);
+   }
    return (
       <article className={styles.productGalleryBlock}>
          <div className={styles.topContent}>

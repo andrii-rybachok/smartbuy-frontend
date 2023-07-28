@@ -1,7 +1,7 @@
+import Footer from "./components/footer/footer";
 import Navigation from "./components/navigation/navigation";
 import "./styles/globals.css";
 
-import Link from "next/link";
 
 export const metadata = {
    title: "Smart Buy",
@@ -14,6 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
          <body >
             <Navigation/>
             {children}
+            <Footer/>
          </body>
       </html>
    );
