@@ -2,7 +2,7 @@ import Link from "next/link";
 import CategoryItem from "./models/CategoryItem";
 
 async function getCategories() {
-   const res = await fetch("http://127.0.0.1:7196/api/shop/categories");
+   const res = await fetch("http://127.0.0.1:7196/api/shop/categories",{cache:"no-cache"});
    return res.json();
 }
 

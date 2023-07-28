@@ -1,0 +1,82 @@
+.productGalleryBlock {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 1080px;
+}
+
+.title {
+    margin-bottom: 25px;
+    font-size: 20px;
+    height: 20px;
+    font-weight: 400;
+    letter-spacing: 6px;
+    color: #272727;
+    text-transform: uppercase;
+}
+
+.topContent {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+}
+
+.arrows {
+    display: flex;
+    justify-self: flex-end;
+    position: absolute;
+    gap: 23px;
+    right: 0;
+    margin-bottom: 21px;
+}
+
+.activeArrow {
+    fill: #272727;
+    transition: .2s ease-out;
+}
+
+.activeArrow:hover {
+    cursor: pointer;
+    fill: #777;
+}
+
+.products {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.moreBtn {
+    display: flex;
+    width: 200px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    border-radius: 5px;
+    border: 1px solid #111111, #454545;
+    background-color: transparent;
+
+    color: #272727;
+    font-size: 16px;
+    font-weight: 400;
+
+    transition: 0.2s ease-out;
+}
+
+.moreBtn:hover {
+    cursor: pointer;
+    color: #FCFCFC;
+    border: 1px solid transparent, transparent;
+    background: linear-gradient(88deg, #1C1C1C 0%, #454545 100%);
+}
+
+.moreBtn:active {
+    cursor: pointer;
+    color: #FCFCFC;
+    border: 1px solid transparent, transparent;
+    background: linear-gradient(90deg, #3A3A3A 0%, #5D5D5D 100%);
+    box-shadow: 0px 0px 15px 0px #000 inset;
+}

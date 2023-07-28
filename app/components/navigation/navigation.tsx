@@ -12,7 +12,7 @@ export default function Navigation() {
       <nav className={styles.nav + " " + helveticaRoman.className}>
          <div className={styles.navContainer}>
             <div className={styles.logo}>
-               <Image src={logoImg} alt="logo image" height={45.714} quality={100} priority={true} />
+               <Image src={logoImg} alt="logo image" height={45.714} quality={100} priority={true} sizes="10 vw" />
             </div>
             <ul className={styles.navList}>
                <li>

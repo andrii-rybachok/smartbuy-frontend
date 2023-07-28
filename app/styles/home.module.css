@@ -1,13 +1,17 @@
 .mainSection {
     display: flex;
-
+    float: right;
 }
 
 .container {
     width: 1300px;
 }
 
-.aside{
+.aside {
     width: 200px;
     margin-right: 20px;
+    position: sticky;
+    top: 69px;
+    left: 0;
+    float: left;
 }

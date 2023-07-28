@@ -5,7 +5,7 @@ import styles from "./gallery.module.css"
 export default function Gallery(){
     return(
         <div className={styles.galleryBlock}>
-            <Image src={mainImage} alt={"Here is carousel gallery"} quality={100} />
+            <Image src={mainImage} alt={"Here is carousel gallery"} quality={100} priority/>
         </div>
     );
 }
