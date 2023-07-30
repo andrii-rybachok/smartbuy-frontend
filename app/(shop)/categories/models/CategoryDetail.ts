@@ -1,5 +1,5 @@
 import FilterName from "@/app/components/filters/models/FilterName";
-import ProductItem from "./products/products";
+import ProductItem from "@/app/models/products/productItem";
 
 export default interface CategoryDetail {
    name: string;

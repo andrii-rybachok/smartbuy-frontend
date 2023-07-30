@@ -4,6 +4,9 @@ import Link from "next/link";
 import styles from "./sidebar.module.css";
 import { helveticaLight, helveticaRoman } from "@/app/styles/fonts";
 import { useEffect } from "react";
+import Image from "next/image";
+import addImage from "@/public/sidebar-add.png"
+
 export default function Sidebar() {
    function handleMouseEnter(event: any) {
       let target: HTMLElement = event.target as HTMLElement;
@@ -232,6 +235,7 @@ export default function Sidebar() {
                </li>
             </ul>
          </div>
+         <Image src={addImage} alt={"here is advertise img"}/>
       </>
    );
 }

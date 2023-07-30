@@ -25,28 +25,26 @@ export default function Profile() {
    }
    return (
       <>
-         <div className={styles.positionRelative}>
-            <div
-               className={styles.profileBlock}
-               onMouseOver={handleMouseOver}
-               onMouseLeave={handleMouseLeave}
-               onClick={handleClick}>
-               <div className={styles.profile}>
-                  <Image src={profileImg} alt="logo image" className={styles.profileImage} />
-               </div>
-               <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="36"
-                  height="36"
-                  viewBox="0 0 36 36"
-                  fill="none"
-                  ref={arrow}
-                  className={styles.arrow}>
-                  <path d="M11.115 12.87L18 19.755L24.885 12.87L27 15L18 24L9 15L11.115 12.87Z" fill="#FCFCFC" />
-               </svg>
+         <div
+            className={styles.profileBlock}
+            onMouseOver={handleMouseOver}
+            onMouseLeave={handleMouseLeave}
+            onClick={handleClick}>
+            <div className={styles.profile}>
+               <Image src={profileImg} alt="logo image" className={styles.profileImage} />
             </div>
-            <ProfilePopup isAuthorized={true} trigger={popupActive} setTrigger={setPopupActive}/>
+            <svg
+               xmlns="http://www.w3.org/2000/svg"
+               width="36"
+               height="36"
+               viewBox="0 0 36 36"
+               fill="none"
+               ref={arrow}
+               className={styles.arrow}>
+               <path d="M11.115 12.87L18 19.755L24.885 12.87L27 15L18 24L9 15L11.115 12.87Z" fill="#FCFCFC" />
+            </svg>
          </div>
+         <ProfilePopup isAuthorized={true} trigger={popupActive} setTrigger={setPopupActive} />
       </>
    );
 }

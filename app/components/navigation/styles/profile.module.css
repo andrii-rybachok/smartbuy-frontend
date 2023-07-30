@@ -1,6 +1,6 @@
 .profileBlock {
     display: flex;
-    align-items: center;
+    align-items: center;  
 }
 
 .profileBlock:hover {
@@ -22,9 +22,7 @@
     border-radius: 48px;
 }
 
-.positionRelative{
-    position: relative;
-}
+
 
 .arrow {
     transition: 0.2s ease-out;

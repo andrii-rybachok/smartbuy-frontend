@@ -27,13 +27,13 @@ const helveticaLight = localFont({
       },
    ],
 });
-const sfPro = localFont({
+const sfProLight = localFont({
    src: [
       {
-         path: "../../public/fonts/SF-Pro-Display/SF-Pro-Display-Black.otf",
+         path: "../../public/fonts/SF-Pro-Display/SF-Pro-Display-Light.otf",
          style: "normal",
       },
    ],
 });
 
-export { helveticaRoman, helveticaMedium, helveticaLight, sfPro };
+export { helveticaRoman, helveticaMedium, helveticaLight, sfProLight };

@@ -11,7 +11,7 @@
 
 .asideList>li {
     position: relative;
-    display: flex;   
+    display: flex;
     align-items: center;
     margin-bottom: 10px;
     height: 20px;
@@ -33,19 +33,17 @@
     position: relative;
 
 }
-.inactiveLink {}
 
 .contactBlock {
     height: 130px;
     border-bottom: 1px solid rgba(119, 119, 119, 0.80);
     padding: 20px 0px 20px 5px;
+    margin-bottom: 20px;
 }
 
-.cooperation {
-    margin-top: 20px;
-}
+.inactiveLink {}
 
-.hoverLink{
+.hoverLink {
     position: absolute;
     opacity: 0;
     top: 0;
@@ -85,4 +83,8 @@
     100% {
         opacity: 0;
     }
+}
+
+.cooperation {
+    margin-top: 20px;
 }
