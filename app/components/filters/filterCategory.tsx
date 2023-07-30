@@ -28,11 +28,11 @@ export default function CategoryFilter({ filter }: { filter: FilterName }) {
    }
    return (
       <ul>
-         {filter.values.map((filterValue) => {
+         {filter.values.map((filterValue,index) => {
             let value = new FilterValue(0, 0, filterValue.stringValue, filterValue.publicValue);
             getLink(value);
             return (
-               <li>
+               <li key={index}>
                   <h5>
                      <Link href={linkUrl}>{filterValue.publicValue}</Link>
                   </h5>

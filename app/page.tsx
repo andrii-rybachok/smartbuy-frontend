@@ -30,7 +30,7 @@ export default async function Home() {
          image: "",
       },
       {
-         id: "131",
+         id: "133",
          name: "Кавомашина PHILIPS Series 2100 EP2230/10",
          rating: 4.5,
          countOfReviwes: 12,
@@ -39,7 +39,7 @@ export default async function Home() {
          image: "",
       },
       {
-         id: "131",
+         id: "134",
          name: "Кавомашина PHILIPS ries 2200 EP2230/10",
          rating: 4.5,
          countOfReviwes: 12,
@@ -48,7 +48,7 @@ export default async function Home() {
          image: "",
       },
       {
-         id: "131",
+         id: "135",
          name: "Кавомашина PHILIPS Series 220000 EP2230/10",
          rating: 4.5,
          countOfReviwes: 12,
@@ -56,15 +56,6 @@ export default async function Home() {
          price: 1099,
          image: "",
       },
-      // {
-      //    id:"131",
-      //    name:"Кавомашина PHIL111IPS Series 2200 EP2230/10",
-      //    rating:4.5,
-      //    countOfReviwes:12,
-      //    shortDescription:"AA1234BB",
-      //    price:1099,
-      //    image:""
-      // },
    ];
    return (
       <main className={styles.container}>

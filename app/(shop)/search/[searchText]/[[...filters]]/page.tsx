@@ -72,7 +72,7 @@ export default async function SearchPage({
          <div>
             {response.products.map((product) => {
                return (
-                  <div>
+                  <div key={product.id}>
                      <h1>{product.name}</h1>
                   </div>
                );

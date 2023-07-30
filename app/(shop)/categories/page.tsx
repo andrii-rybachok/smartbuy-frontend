@@ -12,7 +12,7 @@ export default async function Categories() {
       <section>
          {categories.map((x) => {
             return (
-               <div>
+               <div key={x.id}>
                   <Link href={"/categories/" + x.id + "/"}>
                      <h4>
                         {x.name} | Id:{x.id}

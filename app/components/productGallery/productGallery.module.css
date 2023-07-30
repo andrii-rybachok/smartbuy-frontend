@@ -33,7 +33,7 @@
 
 .activeArrow {
     fill: #272727;
-    transition: .2s ease-out;
+    transition: fill 0.2s ease-out;
 }
 
 .activeArrow:hover {
