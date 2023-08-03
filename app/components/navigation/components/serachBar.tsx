@@ -26,13 +26,13 @@ export default function Searchbar() {
       setIsHearing(!isHearing);
    }
    return (
-      <form action={onSearch} >
+      <form action={onSearch}>
          <div className={styles.searchBlock}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
                <path
                   d="M15.7549 14.755H14.9649L14.6849 14.485C15.6649 13.345 16.2549 11.865 16.2549 10.255C16.2549 6.665 13.3449 3.755 9.75488 3.755C6.16488 3.755 3.25488 6.665 3.25488 10.255C3.25488 13.845 6.16488 16.755 9.75488 16.755C11.3649 16.755 12.8449 16.165 13.9849 15.185L14.2549 15.465V16.255L19.2549 21.245L20.7449 19.755L15.7549 14.755ZM9.75488 14.755C7.26488 14.755 5.25488 12.745 5.25488 10.255C5.25488 7.76501 7.26488 5.755 9.75488 5.755C12.2449 5.755 14.2549 7.76501 14.2549 10.255C14.2549 12.745 12.2449 14.755 9.75488 14.755Z"
                   fill="#FCFCFC"
-                  fill-opacity="0.9"
+                  fillOpacity="0.9"
                />
             </svg>
             <input
@@ -50,17 +50,21 @@ export default function Searchbar() {
                height="25"
                viewBox="0 0 24 25"
                fill="none"
-               className={isHearing ? styles.smallMicro+" "+styles.smallMicroAnimation :   styles.smallMicro+" "+styles.smallMicroAppearing }
+               className={
+                  isHearing
+                     ? styles.smallMicro + " " + styles.smallMicroAnimation
+                     : styles.smallMicro + " " + styles.smallMicroAppearing
+               }
                onClick={onMicroClick}>
                <path
                   d="M12 15C13.66 15 15 13.66 15 12V6C15 4.34 13.66 3 12 3C10.34 3 9 4.34 9 6V12C9 13.66 10.34 15 12 15Z"
                   fill="#FCFCFC"
-                  fill-opacity="0.9"
+                  fillOpacity="0.9"
                />
                <path
                   d="M17 12C17 14.76 14.76 17 12 17C9.24 17 7 14.76 7 12H5C5 15.53 7.61 18.43 11 18.92V22H13V18.92C16.39 18.43 19 15.53 19 12H17Z"
                   fill="#FCFCFC"
-                  fill-opacity="0.9"
+                  fillOpacity="0.9"
                />
             </svg>
             <svg
@@ -69,7 +73,11 @@ export default function Searchbar() {
                height="27"
                viewBox="0 0 30 27"
                fill="none"
-               className={isHearing ? styles.bigMicro +" "+ styles.bigMicroAnimation:  styles.bigMicro +" "+styles.bigMicroDecreasing}
+               className={
+                  isHearing
+                     ? styles.bigMicro + " " + styles.bigMicroAnimation
+                     : styles.bigMicro + " " + styles.bigMicroDecreasing
+               }
                onClick={onMicroClick}>
                <path
                   d="M15 18.125C17.075 18.125 18.75 16.45 18.75 14.375V6.875C18.75 4.8 17.075 3.125 15 3.125C12.925 3.125 11.25 4.8 11.25 6.875V14.375C11.25 16.45 12.925 18.125 15 18.125Z"

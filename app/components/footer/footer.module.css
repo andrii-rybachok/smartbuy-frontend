@@ -30,8 +30,14 @@
     color: rgba(252, 252, 252, 0.90);
     font-size: 14px;
     font-weight: 400;
+    text-decoration: none;
+    transition: 0.2s ease-out;
 }
 
 .line {
     margin: 16px 0;
+}
+
+.footerText {
+    composes: headerMenuText from "@/commonStyles";
 }

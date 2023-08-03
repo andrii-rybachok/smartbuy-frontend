@@ -29,7 +29,7 @@ export default function ProductGallery({ tittle, products }: { tittle: string; p
              </div>
          </div>
          <div className={styles.products}>
-            {products.map((product) => {
+            {products.slice(0,maxProducts).map((product) => {
                return <Product key={product.id} product={product} />;
             })}
          </div>

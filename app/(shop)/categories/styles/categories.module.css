@@ -1,0 +1,93 @@
+.categoriesSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.mainSection {
+
+    display: flex;
+    float: right;
+}
+
+.aside {
+    composes: aside from "@/commonStyles";
+}
+
+.categoriesBlock {
+    display: flex;
+    gap: 20px;
+    padding: 0px 0 20px;
+    align-items: center;
+}
+
+.flexReverse {
+    flex-direction: row-reverse;
+}
+
+.categories {
+    width: 640px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px
+}
+
+.categoriesImage {
+    width: 420px;
+    height: 300px;
+    position: relative;
+}
+
+.categoriesImage>img {
+    object-fit: contain;
+    object-position: center;
+}
+
+.categoriesName {
+    color: #272727;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+.categoriesName:hover {
+    cursor: pointer;
+    font-family: var(--helvetica-medium);
+}
+
+.category {
+    height: 60px;
+    display: flex;
+    gap: 42px;
+    padding-left: 15px;
+    align-items: center;
+    border: 1px solid #777777;
+    border-radius: 5px;
+}
+
+.categories>a {
+    text-decoration: none;
+}
+
+.category:hover {
+    cursor: pointer;
+    border: 1.5px solid #272727;
+
+}
+
+.categoryName {
+    composes: headerMenuText from "@/commonStyles";
+    color: #272727;
+}
+
+.small {
+    width: 310px;
+}
+
+.big {
+    width: 640px;
+}
+
+.line {
+    margin-bottom: 80px;
+}
