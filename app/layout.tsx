@@ -1,7 +1,7 @@
 import Footer from "./components/footer/footer";
 import Navigation from "./components/navigation/navigation";
+import Sidebar from "./components/sidebar/sidebar";
 import "./styles/globals.css";
-
 
 export const metadata = {
    title: "Smart Buy",
@@ -11,10 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
    return (
       <html lang="en">
-         <body >
-            <Navigation/>
+         <body>
+            <Navigation />
             {children}
-            <Footer/>
+            <Footer />
          </body>
       </html>
    );

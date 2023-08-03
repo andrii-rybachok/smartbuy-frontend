@@ -10,6 +10,11 @@ export function setFilterValue(value: string | undefined) {
       if (numberIndex != -1) {
          minValue = Number(value.slice(0, numberIndex));
          maxValue = Number(value.slice(numberIndex + 1));
+         if(Number.isNaN(minValue)||Number.isNaN(maxValue)){
+            stringValue = value;
+            minValue=0;
+            maxValue=0;
+         }
       } else {
          stringValue = value;
       }

@@ -1,4 +1,5 @@
 .mainSection {
+
     display: flex;
     float: right;
 }
@@ -8,10 +9,40 @@
 }
 
 .aside {
-    width: 200px;
-    margin-right: 20px;
-    position: sticky;
-    top: 69px;
-    left: 0;
-    float: left;
+    composes:aside from "@/commonStyles";
+}
+
+.bannerBlock {
+    position: relative;
+    width: 1080px;
+    height: 200px;
+    margin-bottom: 60px;
+}
+
+.bannerBtn {
+    position: absolute;
+    right: 90px;
+    bottom: 40px;
+    background-color: transparent;
+    width: 220px;
+    height: 50px;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: linear-gradient(#111111, #454545);
+    border-radius: 5px;
+    color: #272727;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+
+    transition:  0.1s ease-in-out;
+}
+
+.bannerBtn:hover {
+    cursor: pointer;
+    border-width: 1.5px;
+    font-size: 18.2px;
+    background-color: linear-gradient(#404040, #636363);
+    color: #3C3C3C;
 }

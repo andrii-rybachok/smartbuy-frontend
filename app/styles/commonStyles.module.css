@@ -1,3 +1,21 @@
 .container {
     width: 1300px;
 }
+
+.headerMenuText {
+    text-decoration: none;
+    color: rgba(252, 252, 252, 0.85);
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 400;
+    transition: 0.2s ease-out;
+}
+
+.aside {
+    width: 200px;
+    margin-right: 20px;
+    position: sticky;
+    top: 69px;
+    left: 0;
+    float: left;
+}

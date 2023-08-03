@@ -1,3 +1,17 @@
+@supports (background: paint(houdini)) {
+    @property --colorPrimary1 {
+        syntax: '<color>';
+        initial-value: white;
+        inherits: false;
+    }
+
+    @property --colorPrimary2 {
+        syntax: '<color>';
+        initial-value: white;
+        inherits: false;
+    }
+}
+
 .productBlock {
     width: 200px;
     height: 300px;
@@ -7,28 +21,33 @@
     border-left: 0.5px solid #999;
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
-    transition: 0.2s ease-out;
+    transition: --colorPrimary1 0.2s ease-out, --colorPrimary2 0.2s ease-out, border-bottom 0.2s ease-out, border-top 0.2s ease-out;
+    background: radial-gradient(49.83% 49.83% at 50% 32.83%, var(--colorPrimary1) 0%, var(--colorPrimary2) 100%);
 }
 
 .productBlock:hover {
+    cursor: pointer;
     border-radius: 1px;
     border-top: 1px solid #999;
     border-right: 0.5px solid #999;
     border-bottom: 1px solid #999;
     border-left: 0.5px solid #999;
-    background: radial-gradient(49.83% 49.83% at 50% 32.83%, rgba(28, 28, 28, 0.15) 0%, rgba(28, 28, 28, 0.00) 100%);
+
+    --colorPrimary1: rgba(28, 28, 28, 0.15);
+    --colorPrimary2: rgba(28, 28, 28, 0.00);
 }
+
 
 .imageBlock {
     height: 166px;
-    object-fit: contain;
-    object-position: center;
     margin-bottom: 16px;
+    position: relative;
 }
 
+
 .imageBlock>img {
-    max-width: 204px;
-    max-height: 166px;
+    object-fit: contain;
+    object-position: center;
 }
 
 .downPart {
@@ -54,15 +73,30 @@
 
 
 .name {
+    width: 180px;
+    height: 30px;
+    overflow: hidden;
+    color: #272727;
     font-size: 14px;
     font-weight: 400;
     margin-bottom: 8px;
+    transition: color 0.15s ease-out;
+}
+
+.shortDesc {
+    width: 100%;
+    height: 14px;
+    overflow: hidden;
+}
+
+.name:hover {
+    color: #0B8A67;
 }
 
 .buyPart {
     display: flex;
     height: 19px;
-    align-items: end;
+    align-items: flex-end;
     justify-content: space-between;
 }
 

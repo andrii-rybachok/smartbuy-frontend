@@ -4,6 +4,6 @@ export default interface ProductItem{
     shortDescription:string,
     price:number,
     rating:number,
-    image:string,
+    imageName:string,
     countOfReviwes:number
 }

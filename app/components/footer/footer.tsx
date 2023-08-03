@@ -6,7 +6,7 @@ export default function Footer() {
    return (
       <footer className={styles.footer}>
          <div className={styles.container}>
-            <ul className={styles.list + " " + helveticaRoman.className}>
+            <ul className={styles.list + " " + helveticaRoman.className + " " +styles.footerText}>
                <li>
                   <Link href={"/"}>Головна</Link>
                </li>

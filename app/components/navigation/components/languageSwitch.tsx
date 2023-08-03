@@ -25,9 +25,9 @@ export default function LanguageSwitch() {
             UA
          </button>
          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10" fill="none">
-            <g clip-path="url(#clip0_18_1017)">
-               <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H13V10H0V0Z" fill="#FFD700" />
-               <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H13V5H0V0Z" fill="#0057B8" />
+            <g clipPath="url(#clip0_18_1017)">
+               <path fillRule="evenodd" clipRule="evenodd" d="M0 0H13V10H0V0Z" fill="#FFD700" />
+               <path fillRule="evenodd" clipRule="evenodd" d="M0 0H13V5H0V0Z" fill="#0057B8" />
             </g>
             <defs>
                <clipPath id="clip0_18_1017">

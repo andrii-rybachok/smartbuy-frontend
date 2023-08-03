@@ -16,16 +16,18 @@ export default function Navigation() {
             </div>
             <ul className={styles.navList}>
                <li>
-                  <Link href={"/"}>Головна</Link>
+                  <Link href={"/"} className={styles.headerText}>Головна</Link>
                </li>
                <li>
-                  <Link href={"#"}>Каталог</Link>
+                  <Link href={"/categories"} className={styles.headerText}>
+                     Каталог
+                  </Link>
                </li>
                <li>
-                  <Link href={"#"}>про нас</Link>
+                  <Link href={"#"} className={styles.headerText}>про нас</Link>
                </li>
                <li>
-                  <Link href={"#"}>контакти</Link>
+                  <Link href={"#"} className={styles.headerText}>контакти</Link>
                </li>
             </ul>
             <Searchbar />
@@ -44,7 +46,7 @@ export default function Navigation() {
                   />
                </svg>
             </Link>
-            <Profile/>
+            <Profile />
          </div>
       </nav>
    );
