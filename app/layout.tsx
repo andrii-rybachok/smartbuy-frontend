@@ -1,5 +1,6 @@
 import Footer from "./components/footer/footer";
 import Navigation from "./components/navigation/navigation";
+import Sidebar from "./components/sidebar/sidebar";
 import { IsAuthorized } from "./identity/authentication/authSync";
 import AuthorizationProvider from "./lib/contexts/AuthorizationContext";
 import "./styles/globals.css";
@@ -10,18 +11,15 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-   // let loggedIn = await IsAuthorized();
-
+   const loggedIn=await IsAuthorized();
    return (
       <html lang="en">
          <body>
-
-               <>
-                  <Navigation />
-                  {children}
-                  <Footer />
-               </>
-
+            <AuthorizationProvider isAuthorized={loggedIn}>
+               <Navigation />
+               {children}
+               <Footer />
+            </AuthorizationProvider>
          </body>
       </html>
    );

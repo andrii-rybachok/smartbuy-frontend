@@ -88,6 +88,7 @@ export default async function Home() {
                <ProductGallery tittle="підібрано для вас" products={promotionalProducts} />
             </section>
          </div>
+         
          <aside className={styles.aside}>
             <Sidebar />
          </aside>

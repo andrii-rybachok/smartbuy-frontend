@@ -1,6 +1,6 @@
 "use client"
 
-import { useRouter } from "next/router";
+
 import { useState, useRef } from "react";
 import Register from "./register";
 
@@ -13,7 +13,6 @@ export default function Register() {
       confirmPassword: "",
    });
    const errorField = useRef<HTMLSpanElement>(null);
-   const router = useRouter();
    function handleChange(e: any) {
       setCredentails({
          ...credentails,
@@ -32,7 +31,7 @@ export default function Register() {
          </div>
          <div>
             <label htmlFor="email">Email</label>
-            <input type="text" name="email" onChange={handleChange} required minLength={5} maxLength={20} />
+            <input type="text" name="email" onChange={handleChange} required minLength={5} maxLength={40} />
          </div>
          <div>
             <label htmlFor="password">Password</label>

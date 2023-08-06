@@ -33,7 +33,8 @@ export default function Login() {
       if (res.ok) {
          let response = await res.json();
          localStorage.setItem("acces-token", response.jwtToken);
-         router.replace("/");
+         router.push("/");
+         router.refresh();
       }
    }
 
@@ -42,7 +43,7 @@ export default function Login() {
          <form action={() => LogIn({ cred: credentails })}>
             <div>
                <label htmlFor="email">Email</label>
-               <input type="text" name="email" onChange={handleChange} required minLength={5} maxLength={20} />
+               <input type="text" name="email" onChange={handleChange} required minLength={5} maxLength={40} />
             </div>
             <div>
                <label htmlFor="password">Password</label>

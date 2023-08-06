@@ -1,6 +1,7 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./popupOverlay.module.css";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export function timeout(delay: number) {
    return new Promise((res) => setTimeout(res, delay));
@@ -18,8 +19,14 @@ export default function PopupOverlay({
    animation: Function;
 }) {
    const overlay = useRef<HTMLDivElement>(null);
-
+   const pathname = usePathname();
+   useEffect(() => {
+      if(pathname!="/")
+      handleClick();
+   }, [pathname])
+   
    async function handleClick() {
+      
       animation(children);
       await timeout(350);
       overlay.current?.classList.replace(styles.fadeIn, styles.fadeOut);

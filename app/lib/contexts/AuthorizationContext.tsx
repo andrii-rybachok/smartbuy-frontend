@@ -10,6 +10,6 @@ export default function AuthorizationProvider({
    children: any;
    isAuthorized: boolean;
 }) {
-    const [isLoggedIn, setIsLoggedIn] = useState(isAuthorized);
-   return <AuthorizationContext.Provider value={isLoggedIn}>{children}</AuthorizationContext.Provider>;
+    // const [isLoggedIn, setIsLoggedIn] = useState(isAuthorized);
+   return <AuthorizationContext.Provider value={isAuthorized}>{children}</AuthorizationContext.Provider>;
 }
