@@ -2,14 +2,13 @@
 import Image from "next/image";
 import profileImg from "public/profile-template.png";
 import styles from "../styles/profile.module.css";
-import { useRef, useState } from "react";
-import PopupOverlay from "../../popup/popupOvelay";
+import { useContext, useRef, useState } from "react";
 import ProfilePopup from "../../popup/popups/profilePopup";
-export default function Profile() {
+// import { AuthorizationContext } from "@/app/lib/contexts/AuthorizationContext";
+export default async function Profile() {
    const [popupActive, setPopupActive] = useState(false);
-
+   // const isAuthorized=useContext(AuthorizationContext);
    const arrow = useRef<any>(null);
-   const popup = useRef<HTMLDivElement>(null);
    function handleMouseOver() {
       if (arrow.current != null) {
          arrow.current.classList.add(styles.arrowHover);

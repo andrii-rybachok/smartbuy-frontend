@@ -1,0 +1,11 @@
+.block{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    gap: 5px;
+}
+.crumb{
+    color: #272727;
+    font-size: 12px;
+    font-weight: 300;
+}
