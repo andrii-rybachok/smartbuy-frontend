@@ -24,10 +24,10 @@ export default function Navigation() {
                   </Link>
                </li>
                <li>
-                  <Link href={"#"} className={styles.headerText}>про нас</Link>
+                  <Link href={"/identity/login"} className={styles.headerText}>про нас</Link>
                </li>
                <li>
-                  <Link href={"#"} className={styles.headerText}>контакти</Link>
+                  <Link href={"/identity/register"} className={styles.headerText}>контакти</Link>
                </li>
             </ul>
             <Searchbar />
@@ -47,6 +47,7 @@ export default function Navigation() {
                </svg>
             </Link>
             <Profile />
+            
          </div>
       </nav>
    );

@@ -2,14 +2,15 @@
 import Image from "next/image";
 import profileImg from "public/profile-template.png";
 import styles from "../styles/profile.module.css";
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import PopupOverlay from "../../popup/popupOvelay";
 import ProfilePopup from "../../popup/popups/profilePopup";
+import { AuthorizationContext } from "@/app/lib/contexts/AuthorizationContext";
 export default function Profile() {
    const [popupActive, setPopupActive] = useState(false);
 
    const arrow = useRef<any>(null);
-   const popup = useRef<HTMLDivElement>(null);
+   const isAuthorized = useContext(AuthorizationContext);
    function handleMouseOver() {
       if (arrow.current != null) {
          arrow.current.classList.add(styles.arrowHover);
@@ -44,7 +45,7 @@ export default function Profile() {
                <path d="M11.115 12.87L18 19.755L24.885 12.87L27 15L18 24L9 15L11.115 12.87Z" fill="#FCFCFC" />
             </svg>
          </div>
-         <ProfilePopup isAuthorized={true} trigger={popupActive} setTrigger={setPopupActive} />
+         <ProfilePopup isAuthorized={isAuthorized} trigger={popupActive} setTrigger={setPopupActive} />
       </>
    );
 }

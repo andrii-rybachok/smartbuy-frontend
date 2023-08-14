@@ -1,6 +1,4 @@
-import Link from "next/link";
 import { IsAuthorized } from "./identity/authentication/authSync";
-import Logout from "./components/logout";
 import Gallery from "./components/gallery/gallery";
 import styles from "./styles/home.module.css";
 import Sidebar from "./components/sidebar/sidebar";
@@ -9,7 +7,8 @@ import ProductItem from "./models/products/productItem";
 import Image from "next/image";
 import bannerImg from "@/public/banner.png";
 import { helveticaRoman } from "./styles/fonts";
-const revalidation = 1800;
+import Profile from "./components/navigation/components/profile";
+const revalidation = 100;
 
 async function getPromotedProducts() {
    const res = await fetch("http://127.0.0.1:7196/api/shop/promoted-products", {
@@ -21,8 +20,6 @@ async function getPromotedProducts() {
 }
 
 export default async function Home() {
-   let loggedIn = await IsAuthorized();
-
    const promotionalProducts: ProductItem[] = [
       {
          id: "131",
@@ -89,15 +86,9 @@ export default async function Home() {
                   <button className={styles.bannerBtn + " " + helveticaRoman.className}>Відкрити каталог</button>
                </div>
                <ProductGallery tittle="підібрано для вас" products={promotionalProducts} />
-               {loggedIn ? (
-                  <>
-                     <Logout></Logout>
-                  </>
-               ) : (
-                  <Link href={"/identity/login"}>Log In</Link>
-               )}
             </section>
          </div>
+
          <aside className={styles.aside}>
             <Sidebar />
          </aside>

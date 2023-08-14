@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Credentials from "../models/credentials";
 import { useRouter } from "next/navigation";
 
@@ -9,6 +9,7 @@ export default function Login() {
       email: "",
       password: "",
    });
+   const errorField = useRef<HTMLSpanElement>(null);
    const router = useRouter();
    function handleChange(e: any) {
       setCredentails({
@@ -26,9 +27,15 @@ export default function Login() {
          cache: "no-cache",
          body: JSON.stringify(cred),
       });
-      let response = await res.json();
-      localStorage.setItem("acces-token", response.jwtToken);
-      router.replace("/");
+      if (!res.ok) {
+         errorField.current?.append(await res.text());
+      }
+      if (res.ok) {
+         let response = await res.json();
+         localStorage.setItem("acces-token", response.jwtToken);
+         router.push("/");
+         router.refresh();
+      }
    }
 
    return (
@@ -36,11 +43,22 @@ export default function Login() {
          <form action={() => LogIn({ cred: credentails })}>
             <div>
                <label htmlFor="email">Email</label>
-               <input type="text" name="email" onChange={handleChange} />
+               <input type="text" name="email" onChange={handleChange} required minLength={5} maxLength={40} />
             </div>
             <div>
                <label htmlFor="password">Password</label>
-               <input type="password" name="password" id="" onChange={handleChange} />
+               <input
+                  type="password"
+                  name="password"
+                  id=""
+                  onChange={handleChange}
+                  required
+                  minLength={6}
+                  maxLength={20}
+               />
+            </div>
+            <div>
+               <span ref={errorField}></span>
             </div>
             <input type="submit" value="Log In" />
          </form>
