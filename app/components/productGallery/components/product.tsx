@@ -4,10 +4,15 @@ import Image from "next/image";
 import templateImg from "@/public/productTemplate.png";
 import styles from "./product.module.css";
 import { helveticaMedium, helveticaRoman, sfProLight } from "@/app/styles/fonts";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { dataFetch } from "@/app/lib/useFetch";
+import { AuthorizationContext } from "@/app/lib/contexts/AuthorizationContext";
+import { useRouter } from "next/navigation";
 
 export default function Product({ product }: { product: ProductItem }) {
-   const [isLiked, setIsLiked] = useState(false);
+   const [isLiked, setIsLiked] = useState(product.isLiked);
+   const isAuthorized = useContext(AuthorizationContext);
+   const router = useRouter();
    const inactiveStars = [];
    const activeStars = [];
    for (let index = 0; index < 5 - Math.round(product.rating); index++) {
@@ -46,9 +51,26 @@ export default function Product({ product }: { product: ProductItem }) {
          </svg>
       );
    }
-
-   function handleClick() {
-      setIsLiked(!isLiked);
+   async function handleClick() {
+      if (isAuthorized) {
+         if (isLiked == false) {
+            let params = new URLSearchParams({
+               productId: product.id,
+            });
+            let res = await dataFetch("http://127.0.0.1:7196/api/shop/like?" + params, {
+               method: "POST",
+               cache: "no-cache",
+               credentials: "include",
+            });
+            if (res.ok) {
+               setIsLiked(true);
+            }
+         } else {
+            setIsLiked(false);
+         }
+      } else {
+         router.push("/identity/login");
+      }
    }
 
    return (

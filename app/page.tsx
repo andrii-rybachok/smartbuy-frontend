@@ -8,7 +8,7 @@ import Image from "next/image";
 import bannerImg from "@/public/banner.png";
 import { helveticaRoman } from "./styles/fonts";
 import Profile from "./components/navigation/components/profile";
-const revalidation = 1800;
+const revalidation = 100;
 
 async function getPromotedProducts() {
    const res = await fetch("http://127.0.0.1:7196/api/shop/promoted-products", {
@@ -88,7 +88,7 @@ export default async function Home() {
                <ProductGallery tittle="підібрано для вас" products={promotionalProducts} />
             </section>
          </div>
-         
+
          <aside className={styles.aside}>
             <Sidebar />
          </aside>

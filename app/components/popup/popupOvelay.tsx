@@ -21,7 +21,7 @@ export default function PopupOverlay({
    const overlay = useRef<HTMLDivElement>(null);
    const pathname = usePathname();
    useEffect(() => {
-      if(pathname!="/")
+      if(trigger==true)
       handleClick();
    }, [pathname])
    
