@@ -1,0 +1,17 @@
+.products {
+    width: 1080px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-bottom: 100px;
+}
+
+.moreCatalogBtn {
+    composes: moreBtn from "./productGallery.module.css";
+    width: 420px;
+    height: 40px;
+    margin: 0 auto;
+}
+.notFound{
+    margin: auto;
+}

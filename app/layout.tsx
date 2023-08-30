@@ -4,6 +4,7 @@ import Sidebar from "./components/sidebar/sidebar";
 import { IsAuthorized } from "./identity/authentication/authSync";
 import AuthorizationProvider from "./lib/contexts/AuthorizationContext";
 import "./styles/globals.css";
+import styles from "./styles/home.module.css";
 
 export const metadata = {
    title: "Smart Buy",
@@ -11,14 +12,16 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-   const loggedIn=await IsAuthorized();
+   const loggedIn = await IsAuthorized();
    return (
       <html lang="en">
          <body>
             <AuthorizationProvider isAuthorized={loggedIn}>
-               <Navigation />
-               {children}
-               <Footer />
+                  <Navigation />
+               <main className={styles.container}>
+                  {children}
+               </main>
+                  <Footer />
             </AuthorizationProvider>
          </body>
       </html>

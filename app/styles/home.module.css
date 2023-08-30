@@ -1,15 +1,15 @@
 .mainSection {
-
     display: flex;
     float: right;
 }
 
 .container {
     width: 1300px;
+    min-height: calc(100vh - 190px);
 }
 
 .aside {
-    composes:aside from "@/commonStyles";
+    composes: aside from "@/commonStyles";
 }
 
 .bannerBlock {
@@ -36,7 +36,7 @@
     font-style: normal;
     font-weight: 400;
 
-    transition:  0.1s ease-in-out;
+    transition: 0.1s ease-in-out;
 }
 
 .bannerBtn:hover {

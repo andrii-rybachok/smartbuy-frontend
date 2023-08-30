@@ -8,6 +8,7 @@ import { helveticaMedium, helveticaRoman } from "@/app/styles/fonts";
 import GlobalCategory from "./models/GlobalCategory";
 import Sidebar from "@/app/components/sidebar/sidebar";
 import Breadcrumbs from "@/app/components/breadcrumbs/Breadcrumbs";
+import CategoriesColumn from "@/app/components/categories/categoriesColumn";
 async function getCategories() {
    const res = await fetch("http://127.0.0.1:7196/api/shop/categories", { next:{revalidate:1800}});
    return res.json();
@@ -70,37 +71,10 @@ export default async function Categories() {
                            />
                         </div>
                         <div className={styles.categories + " " + helveticaRoman.className} key={glCategory.id}>
-                           <h2 className={styles.categoriesName + " " + helveticaMedium.variable}>{glCategory.name}</h2>
-                           {glCategory.categories.map((category, index) => {
-                              let category_ = smallCategories.at(index);
-                              if ((index + 1) % 3 === 0) {
-                                 category_ = bigCategories.at((index + 1) / 3 - 1);
-                              }
-                              category = category_ != undefined ? category_ : category;
-                              return (
-                                 <Link href={"/categories/" + category.id}>
-                                    <div
-                                       className={
-                                          (index + 1) % 3 === 0
-                                             ? styles.category + " " + styles.big
-                                             : styles.category + " " + styles.small
-                                       }>
-                                       <Image
-                                          src={
-                                             category.image != undefined
-                                                ? "http://127.0.0.1:7196/images/category/" + category.image
-                                                : "http://127.0.0.1:7196/images/category/laptops.webp"
-                                          }
-                                          alt={""}
-                                          width={53}
-                                          height={53}
-                                          quality={100}
-                                       />
-                                       <h3 className={styles.categoryName}>{category.name}</h3>
-                                    </div>
-                                 </Link>
-                              );
-                           })}
+                           <Link href={"/categories/" + glCategory.id} prefetch={false}>
+                              <h2 className={styles.categoriesName + " " + helveticaMedium.variable}>{glCategory.name}</h2>
+                           </Link>
+                           <CategoriesColumn categories={glCategory.categories}/>
                         </div>
                      </article>
                      <svg

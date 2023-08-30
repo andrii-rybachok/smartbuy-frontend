@@ -1,0 +1,68 @@
+.closedFilter:hover {
+    border-top: 0.5px solid #272727;
+    border-bottom: 0.5px solid #272727;
+    cursor: pointer;
+}
+
+.closedFilter {
+    padding-left: 15px;
+    border-top: 0.5px solid transparent;
+    border-bottom: 0.5px solid transparent;
+}
+
+.arrow {
+    position: absolute;
+    right: 13px;
+}
+.arrow:hover{
+    cursor: pointer;
+}
+.filterNameBlock {
+    position: relative;
+    height: 39px;
+    display: flex;
+    align-items: center;
+    width: 200px;
+}
+
+.filterBlock {
+    padding-top: 5px;
+    border-top: 0.5px solid #272727;
+    border-bottom: 0.5px solid #272727;
+    padding-left: 15px;
+}
+
+.filterNameBlock>h4 {
+    max-width: 145px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #272727;
+}
+
+.filtersList {
+    list-style: none;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0 18px 0;
+}
+
+.filterValueBlock {
+    height: 30px;
+    width: 185px;
+    align-items: center;
+    display: flex;
+}
+
+.filterValue {
+    width: 140px;
+    font-size: 16px;
+    font-weight: 300;
+    text-decoration: none;
+    color: #272727;
+}
+.checkBox{
+    position: absolute;
+    right: 9px;
+}
