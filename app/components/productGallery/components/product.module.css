@@ -142,3 +142,8 @@
     cursor: pointer;
     fill: #0B8A67;
 }
+.products {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}

@@ -70,7 +70,7 @@ export default async function Home() {
    const promotedProductsData = getPromotedProducts();
    const [promotedProducts] = await Promise.all([promotedProductsData]);
    return (
-      <main className={styles.container}>
+      <>
          <section>
             <Gallery />
          </section>
@@ -92,6 +92,6 @@ export default async function Home() {
          <aside className={styles.aside}>
             <Sidebar />
          </aside>
-      </main>
+      </>
    );
 }

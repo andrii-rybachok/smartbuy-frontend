@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import styles from "./styles/filters.module.css";
+import styles from "./styles/filter.module.css";
 import FilterValue from "./models/FilterValue";
 import FilterName from "./models/FilterName";
+import { useState } from "react";
+import { helveticaLight, helveticaRoman } from "@/app/styles/fonts";
 
 export function addFilter(filterValue: FilterValue, filterPart: string, linkUrl: string, filterName: string) {
    function insertAtIndex(str: string, substring: string, index: number) {
@@ -87,6 +89,7 @@ export function deleteFilter(filterValue: FilterValue, filterPart: string, linkU
 }
 
 export default function Filter({ filter }: { filter: FilterName }) {
+   const [isOpen, setIsOpen] = useState(true);
    const pathname = usePathname();
    let decaodedPathName = decodeURIComponent(pathname);
    let urlParts = decaodedPathName.split("/");
@@ -97,43 +100,106 @@ export default function Filter({ filter }: { filter: FilterName }) {
       filterPart = urlParts.at(urlParts.length - 1);
    }
    let linkUrl = "";
-
+   function handleClick() {
+      setIsOpen(!isOpen);
+   }
+   const filterName = (
+      <div className={styles.filterNameBlock}>
+         <h4 className={helveticaRoman.className}>{filter.publicName}</h4>
+         {isOpen ? (
+            <svg
+               xmlns="http://www.w3.org/2000/svg"
+               width="36"
+               className={styles.arrow}
+               height="36"
+               viewBox="0 0 36 36"
+               onClick={handleClick}
+               fill="none">
+               <path d="M24.12 23L18 16.814L11.88 23L10 21.0863L18 13L26 21.0863L24.12 23Z" fill="#272727" />
+            </svg>
+         ) : (
+            <svg
+               xmlns="http://www.w3.org/2000/svg"
+               width="36"
+               height="36"
+               viewBox="0 0 36 36"
+               fill="none"
+               onClick={handleClick}
+               className={styles.arrow}>
+               <path d="M11.88 13L18 19.186L24.12 13L26 14.9137L18 23L10 14.9137L11.88 13Z" fill="#272727" />
+            </svg>
+         )}
+      </div>
+   );
    return (
       <div>
-         <h5>
-            {filter.publicName} | Id:{filter.id}
-         </h5>
-         <ul>
-            {filter.values.map((filterValue) => {
-               filterValue = new FilterValue(
-                  filterValue.minValue,
-                  filterValue.maxValue,
-                  filterValue.stringValue,
-                  filterValue.publicValue
-               );
-               linkUrl = decaodedPathName;
-               let regexForString = new RegExp("(" + filterValue.stringValue + ")");
-               let regexForNumbers = new RegExp("(" + filterValue.minValue + "-" + filterValue.maxValue + ")");
-               if (decaodedPathName.search(regexForString) != -1 || decaodedPathName.search(regexForNumbers) != -1) {
-                  linkUrl = deleteFilter(filterValue, filterPart, linkUrl, filter.name);
-                  activeLink = true;
-               } else {
-                  linkUrl = addFilter(filterValue, filterPart, linkUrl, filter.name);
-                  activeLink = false;
-               }
-               return (
-                  <Link
-                     href={linkUrl}
-                     key={filterValue.publicValue}
-                     prefetch={false}
-                     className={activeLink ? styles.activeLink : styles.inactiveLink}>
-                     <li>
-                        <div>{filterValue.publicValue}</div>
-                     </li>
-                  </Link>
-               );
-            })}
-         </ul>
+         {isOpen ? (
+            <div>
+               <div className={styles.filterBlock}>
+                  {filterName}
+                  <ul className={styles.filtersList}>
+                     {filter.values.map((filterValue) => {
+                        filterValue = FilterValue.CreateNewFilterValue(filterValue);
+                        linkUrl = decaodedPathName;
+                        let regexForString = new RegExp("(" + filterValue.stringValue + ")");
+                        let regexForNumbers = new RegExp("(" + filterValue.minValue + "-" + filterValue.maxValue + ")");
+                        if (
+                           decaodedPathName.search(regexForString) != -1 ||
+                           decaodedPathName.search(regexForNumbers) != -1
+                        ) {
+                           linkUrl = deleteFilter(filterValue, filterPart, linkUrl, filter.name);
+                           activeLink = true;
+                        } else {
+                           linkUrl = addFilter(filterValue, filterPart, linkUrl, filter.name);
+                           activeLink = false;
+                        }
+                        return (
+                           <Link scroll={false}
+                              href={linkUrl}
+                              key={filterValue.publicValue}
+                              prefetch={false}
+                              style={{
+                                 textDecoration: "none",
+                              }}
+                              className={activeLink ? styles.activeLink : styles.inactiveLink}>
+                              <li>
+                                 <div className={styles.filterValueBlock}>
+                                    <h5 className={styles.filterValue + " " + helveticaLight.className}>
+                                       {filterValue.publicValue}
+                                    </h5>
+                                    {activeLink ? (
+                                       <svg
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 16 16"
+                                          className={styles.checkBox}
+                                          fill="none">
+                                          <rect x="0.5" y="0.5" width="15" height="15" rx="4.5" stroke="#272727" />
+                                          <circle cx="8" cy="8" r="4" fill="#272727" />
+                                       </svg>
+                                    ) : (
+                                       <svg
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 16 16"
+                                          className={styles.checkBox}
+                                          fill="none">
+                                          <rect x="0.5" y="0.5" width="15" height="15" rx="4.5" stroke="#272727" />
+                                       </svg>
+                                    )}
+                                 </div>
+                              </li>
+                           </Link>
+                        );
+                     })}
+                  </ul>
+               </div>
+            </div>
+         ) : (
+            <div className={styles.closedFilter}>{filterName}</div>
+         )}
       </div>
    );
 }

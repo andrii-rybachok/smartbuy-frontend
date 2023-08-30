@@ -4,13 +4,16 @@ export default class FilterValue {
    stringValue: string | undefined;
    publicValue: string = "";
 
+
    constructor(minValue: number, maxValue: number, stringValue: string | undefined, publicValue: string) {
       this.maxValue = maxValue;
       this.minValue = minValue;
       this.stringValue = stringValue;
       this.publicValue = publicValue;
    }
-
+   static CreateNewFilterValue(filter:FilterValue):FilterValue{
+      return new FilterValue(filter.minValue,filter.maxValue,filter.stringValue,filter.publicValue);
+   }
    IsNumeric(): boolean {
       if (this.maxValue - this.minValue >= 0 &&this.maxValue!=0) {
          return true;

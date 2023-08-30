@@ -4,6 +4,7 @@ import styles from "./productGallery.module.css";
 import ProductItem from "@/app/models/products/productItem";
 import Product from "./components/product";
 import { useState } from "react";
+import ProductsLine from "./components/productsLine";
 
 export default function ProductGallery({ tittle, products }: { tittle: string; products: ProductItem[] }) {
 
@@ -29,9 +30,8 @@ export default function ProductGallery({ tittle, products }: { tittle: string; p
              </div>
          </div>
          <div className={styles.products}>
-            {products.slice(0,maxProducts).map((product) => {
-               return <Product key={product.id} product={product} />;
-            })}
+
+            <ProductsLine products={products.slice(0,maxProducts)}/>
          </div>
          <button className={styles.moreBtn + " " + helveticaRoman.className}>Більше</button>
       </article>
