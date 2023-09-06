@@ -3,7 +3,9 @@ import GlobalCategoryResponse from "../requests/GlobalCategoryResponse";
 import getFiltersFromUriString from "@/app/lib/filter-service";
 
 import TopContent from "@/app/components/categories/topContent";
+//@ts-ignore
 import CatalogSection from "@/app/components/categories/CatalogSection";
+
 
 async function GetGlobalCategory(glCategoryId: string, filterParam: string) {
    let params = new URLSearchParams({

@@ -26,7 +26,7 @@ export default function Breadcrumbs({ props }: { props: BreadcrumbsProps }) {
                   </>
                );
             } else {
-               return <span className={styles.crumb + " " + helveticaLight.className}>{crumb.label}</span>;
+               return <span className={styles.crumb + " " + helveticaLight.className} key={index}>{crumb.label}</span>;
             }
          })}
       </div>

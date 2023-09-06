@@ -1,4 +1,4 @@
-import Filters from "@/app/components/filters/filters";
+
 import getFiltersFromUriString from "@/app/lib/filter-service";
 import CategoryDetail from "@/app/(shop)/categories/models/CategoryDetail";
 import Breadcrumbs from "@/app/components/breadcrumbs/Breadcrumbs";
@@ -6,6 +6,7 @@ import Breadcrumbs from "@/app/components/breadcrumbs/Breadcrumbs";
 import GlobalCategory from "@/app/(shop)/categories/models/GlobalCategory";
 import TopContent from "@/app/components/categories/topContent";
 import CatalogSection from "@/app/components/categories/CatalogSection";
+
 
 async function getCategory(categoryId: string, filterParam: string) {
    let params = new URLSearchParams({

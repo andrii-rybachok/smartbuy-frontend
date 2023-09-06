@@ -28,7 +28,8 @@ export default async function Home() {
          countOfReviwes: 12,
          shortDescription: "AA1234BB",
          price: 1099,
-         image: "",
+         isLiked: false,
+         imageName: "",
       },
       {
          id: "132",
@@ -37,7 +38,8 @@ export default async function Home() {
          countOfReviwes: 12,
          shortDescription: "AA1234BB",
          price: 1099,
-         image: "",
+         isLiked: false,
+         imageName: "",
       },
       {
          id: "133",
@@ -46,7 +48,8 @@ export default async function Home() {
          countOfReviwes: 12,
          shortDescription: "AA1234BB",
          price: 1099,
-         image: "",
+         isLiked: false,
+         imageName: "",
       },
       {
          id: "134",
@@ -55,7 +58,8 @@ export default async function Home() {
          countOfReviwes: 12,
          shortDescription: "AA1234BB",
          price: 1099,
-         image: "",
+         isLiked: false,
+         imageName: "",
       },
       {
          id: "135",
@@ -64,7 +68,8 @@ export default async function Home() {
          countOfReviwes: 12,
          shortDescription: "AA1234BB",
          price: 1099,
-         image: "",
+         isLiked: false,
+         imageName: "",
       },
    ];
    const promotedProductsData = getPromotedProducts();

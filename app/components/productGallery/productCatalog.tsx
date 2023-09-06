@@ -29,8 +29,8 @@ export default function ProductCatalog({ products }: { products: ProductItem[] }
          {products.length == 0 ? (
             <h2 className={style.notFound}>За заданими параметрами не знайдено жодної моделі:</h2>
          ) : (
-            currentProductsLists.map((productList) => {
-               return <ProductsLine products={productList} />;
+            currentProductsLists.map((productList, index) => {
+               return <ProductsLine products={productList} key={index} />;
             })
          )}
          {currentPage > maxPages ? <button className={style.moreCatalogBtn}>Більше</button> : ""}

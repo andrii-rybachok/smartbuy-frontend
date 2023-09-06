@@ -27,7 +27,7 @@ export default function CategoriesColumn({
             let categoryNameStyle = category.id == activeCategoryId ? styles.categoryActiveName : styles.categoryDefaultName;
 
             return (
-               <Link href={"/category/" + category.id}>
+               <Link href={"/category/" + category.id} key={category.id}>
                   <div
                      className={
                         (index + 1) % 3 === 0 ? categoryStyle + " " + styles.big : categoryStyle + " " + styles.small

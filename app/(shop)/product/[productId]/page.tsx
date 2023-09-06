@@ -1,9 +1,3 @@
+async function getProduct() {}
 
-async function getProduct(){
-    
-}
-
-
-export default function Product({productId}:{productId:string}) {
-    
-}
+export default function Product({ params: { productId } }: { params: { productId: string } }) {}
