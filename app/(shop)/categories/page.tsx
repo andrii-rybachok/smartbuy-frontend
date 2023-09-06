@@ -10,7 +10,7 @@ import Sidebar from "@/app/components/sidebar/sidebar";
 import Breadcrumbs from "@/app/components/breadcrumbs/Breadcrumbs";
 import CategoriesColumn from "@/app/components/categories/categoriesColumn";
 async function getCategories() {
-   const res = await fetch("http://127.0.0.1:7196/api/shop/categories", { next:{revalidate:1800}});
+   const res = await fetch("http://127.0.0.1:7196/api/shop/categories", { next:{revalidate:1800},cache:"no-cache"});
    return res.json();
 }
 
