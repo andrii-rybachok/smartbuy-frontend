@@ -33,8 +33,8 @@ export default function CategoriesColumn({ categories, activeCategoryId = "" }: 
                      <Image
                         src={
                            category.image != undefined
-                              ? process.env.NEXT_PUBLIC_BACKEND_URL + "/images/category/" + category.image
-                              : process.env.NEXT_PUBLIC_BACKEND_URL + "/images/category/laptops.webp"
+                              ? process.env.NEXT_PUBLIC_IMAGES_URL + "/images/category/" + category.image
+                              : process.env.NEXT_PUBLIC_IMAGES_URL + "/images/category/laptops.webp"
                         }
                         alt={""}
                         width={53}

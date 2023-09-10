@@ -26,7 +26,7 @@ export default function TopContent({ globalCategory, activeCategoryId = "" }: To
                   src={
                      globalCategory.image == undefined
                         ? tablets
-                        : process.env.NEXT_PUBLIC_BACKEND_URL + "/images/globalCategory/" + globalCategory.image
+                        : process.env.NEXT_PUBLIC_IMAGES_URL + "/images/globalCategory/" + globalCategory.image
                   }
                   alt={"image for global category"}
                   fill

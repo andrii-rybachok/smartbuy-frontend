@@ -31,7 +31,7 @@ async function getGlobalCategory(categoryId: string) {
    let params = new URLSearchParams({
       id: categoryId,
    });
-   const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/api/shop/globalCategoryId?" + params, {
+   const res = await fetch(process.env.NEXT_PUBLIC_IMAGES_URL + "/api/shop/globalCategoryId?" + params, {
       method: "GET",
       headers: {
          "Content-Type": "application/json",

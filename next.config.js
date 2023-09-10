@@ -7,9 +7,9 @@ const nextConfig = {
     images: {
         remotePatterns: [
             {
-                protocol: "https",
-                hostname: "brozetka.itstep.click",
-
+                protocol: "http",
+                hostname: "127.0.0.1",
+                port: "7196",
                 pathname: "/images/**"
             }
         ]

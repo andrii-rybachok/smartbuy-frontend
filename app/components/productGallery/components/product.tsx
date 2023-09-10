@@ -80,7 +80,7 @@ export default function Product({ product }: { product: ProductItem }) {
                src={
                   product.imageName === undefined
                      ? templateImg
-                     : process.env.NEXT_PUBLIC_BACKEND_URL + "/images/preview/" + product.imageName
+                     : process.env.NEXT_PUBLIC_IMAGES_URL + "/images/preview/" + product.imageName
                }
                alt={"Image for product"}
                fill

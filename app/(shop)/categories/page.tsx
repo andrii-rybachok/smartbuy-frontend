@@ -66,7 +66,7 @@ export default async function Categories() {
                               src={
                                  glCategory.image == undefined
                                     ? tablets
-                                    : process.env.NEXT_PUBLIC_BACKEND_URL + "/images/globalCategory/" + glCategory.image
+                                    : process.env.NEXT_PUBLIC_IMAGES_URL + "/images/globalCategory/" + glCategory.image
                               }
                               alt={"image for global category"}
                               fill
