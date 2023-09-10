@@ -1,4 +1,3 @@
-
 import getFiltersFromUriString from "@/app/lib/filter-service";
 import CategoryDetail from "@/app/(shop)/categories/models/CategoryDetail";
 import Breadcrumbs from "@/app/components/breadcrumbs/Breadcrumbs";
@@ -7,14 +6,13 @@ import GlobalCategory from "@/app/(shop)/categories/models/GlobalCategory";
 import TopContent from "@/app/components/categories/topContent";
 import CatalogSection from "@/app/components/categories/CatalogSection";
 
-
 async function getCategory(categoryId: string, filterParam: string) {
    let params = new URLSearchParams({
       categoryId: categoryId,
    });
    let filters = getFiltersFromUriString(filterParam);
    if (filters != undefined) {
-      const res = await fetch("http://127.0.0.1:7196/api/shop/category-filter?" + params, {
+      const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/api/shop/category-filter?" + params, {
          method: "POST",
          headers: {
             "Content-Type": "application/json",
@@ -24,7 +22,7 @@ async function getCategory(categoryId: string, filterParam: string) {
       });
       return res.json();
    }
-   const res = await fetch("http://127.0.0.1:7196/api/shop/get-category?" + params, {
+   const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/api/shop/get-category?" + params, {
       cache: "no-cache",
    });
    return res.json();
@@ -33,7 +31,7 @@ async function getGlobalCategory(categoryId: string) {
    let params = new URLSearchParams({
       id: categoryId,
    });
-   const res = await fetch("http://127.0.0.1:7196/api/shop/globalCategoryId?" + params, {
+   const res = await fetch(process.env.NEXT_PUBLIC_IMAGES_URL + "/api/shop/globalCategoryId?" + params, {
       method: "GET",
       headers: {
          "Content-Type": "application/json",
@@ -69,7 +67,7 @@ export default async function CategoryPage({
                   },
                   {
                      label: globalCategory.name,
-                     path: "/categories/"+globalCategory.id,
+                     path: "/categories/" + globalCategory.id,
                   },
                   {
                      label: category.name,

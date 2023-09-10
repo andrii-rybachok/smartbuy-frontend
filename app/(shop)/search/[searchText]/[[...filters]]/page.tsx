@@ -3,12 +3,13 @@ import Filters from "@/app/components/filters/filters";
 import FilterNameDTO from "@/app/models/filterDTO/FilterNameDTO";
 import getFiltersFromUriString from "@/app/lib/filter-service";
 import SearchResponse from "@/app/(shop)/search/models/searchResponse";
+import CatalogSection from "@/app/components/categories/CatalogSection";
 
 async function GetProductsOrCateogry(searchString: string) {
    let params = new URLSearchParams({
       searchText: searchString,
    });
-   let res = await fetch("http://127.0.0.1:7196/api/shop/search?" + params, {
+   let res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/api/shop/search?" + params, {
       method: "POST",
       cache: "no-cache",
    });
@@ -42,7 +43,7 @@ async function FilterProducts(searchString: string, stringFilters: string) {
       if (filters.length > 0) {
          fetchOptions.body = JSON.stringify(filters);
       }
-      let res = await fetch("http://127.0.0.1:7196/api/shop/search?" + params, {
+      let res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/api/shop/search?" + params, {
          ...fetchOptions,
          headers: {
             "Content-Type": "application/json",
@@ -70,17 +71,7 @@ export default async function SearchPage({
       <div>
          <h1>{text}</h1>
          <div>
-            {response.products.map((product) => {
-               return (
-                  <div key={product.id}>
-                     <h1>{product.name}</h1>
-                  </div>
-               );
-            })}
-         </div>
-         <hr />
-         <div>
-            <Filters filters={response.filters} />
+            <CatalogSection filters={response.filters} products={response.products} />
          </div>
       </div>
    );

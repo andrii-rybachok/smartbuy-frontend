@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import Credentials from "../models/credentials";
 import { useRouter } from "next/navigation";
-
+import styles from "./login.module.css";
 export default function Login() {
    const [credentails, setCredentails] = useState<Credentials>({
       email: "",
@@ -18,7 +18,7 @@ export default function Login() {
       });
    }
    async function LogIn({ cred }: { cred: Credentials }) {
-      const res = await fetch("http://localhost:3000/api/identity/login", {
+      const res = await fetch(process.env.NEXT_PUBLIC_LOCAL_API_URL + "/api/identity/login", {
          credentials: "include",
          method: "POST",
          headers: {
@@ -40,28 +40,41 @@ export default function Login() {
 
    return (
       <>
-         <form action={() => LogIn({ cred: credentails })}>
-            <div>
-               <label htmlFor="email">Email</label>
-               <input type="text" name="email" onChange={handleChange} required minLength={5} maxLength={40} />
-            </div>
-            <div>
-               <label htmlFor="password">Password</label>
+         <div className={styles.center}>
+            <form action={() => LogIn({ cred: credentails })} className={styles.loginFrom}>
+               <label htmlFor="email" className={styles.label}>
+                  Пошта
+               </label>
+               <input
+                  type="text"
+                  name="email"
+                  className={styles.input}
+                  onChange={handleChange}
+                  required
+                  minLength={5}
+                  maxLength={40}
+               />
+
+               <label htmlFor="password" className={styles.label}>
+                  Пароль
+               </label>
                <input
                   type="password"
                   name="password"
                   id=""
                   onChange={handleChange}
+                  className={styles.input}
                   required
                   minLength={6}
                   maxLength={20}
                />
-            </div>
-            <div>
-               <span ref={errorField}></span>
-            </div>
-            <input type="submit" value="Log In" />
-         </form>
+
+               <div>
+                  <span ref={errorField}></span>
+               </div>
+               <input type="submit" className={styles.button} value="Вхід" />
+            </form>
+         </div>
       </>
    );
 }
