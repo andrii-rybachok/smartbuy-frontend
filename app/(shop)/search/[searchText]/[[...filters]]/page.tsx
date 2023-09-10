@@ -4,7 +4,8 @@ import FilterNameDTO from "@/app/models/filterDTO/FilterNameDTO";
 import getFiltersFromUriString from "@/app/lib/filter-service";
 import SearchResponse from "@/app/(shop)/search/models/searchResponse";
 import CatalogSection from "@/app/components/categories/CatalogSection";
-
+import { helveticaMedium, helveticaRoman } from "@/app/styles/fonts";
+import styles from "../../search.module.css";
 async function GetProductsOrCateogry(searchString: string) {
    let params = new URLSearchParams({
       searchText: searchString,
@@ -33,13 +34,6 @@ async function FilterProducts(searchString: string, stringFilters: string) {
       cache: "no-cache",
    };
    if (filters != undefined) {
-      // let categoryFilter = filters.find((x) => x.name == "Category");
-      // if (categoryFilter != undefined) {
-      //    //@ts-ignore
-      //    params.append("categoryId", categoryFilter.values.at(0)?.stringValue);
-      //    const index = filters.indexOf(categoryFilter);
-      //    filters.splice(index, 1);
-      // }
       if (filters.length > 0) {
          fetchOptions.body = JSON.stringify(filters);
       }
@@ -69,7 +63,7 @@ export default async function SearchPage({
    }
    return (
       <div>
-         <h1>{text}</h1>
+         <h1 className={helveticaRoman.className + " " + styles.searchParams}>Результати пошуку "{text}"</h1>
          <div>
             <CatalogSection filters={response.filters} products={response.products} />
          </div>
