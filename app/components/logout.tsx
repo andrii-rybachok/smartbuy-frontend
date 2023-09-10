@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 
 export async function logout() {
-   await fetch("http://localhost:3000/api/identity/logout", {
+   await fetch(process.env.NEXT_PUBLIC_LOCAL_API_URL + "/api/identity/logout", {
       method: "POST",
       credentials: "include",
       cache: "no-cache",

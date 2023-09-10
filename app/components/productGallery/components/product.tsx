@@ -57,7 +57,7 @@ export default function Product({ product }: { product: ProductItem }) {
             let params = new URLSearchParams({
                productId: product.id,
             });
-            let res = await dataFetch("http://127.0.0.1:7196/api/shop/like?" + params, {
+            let res = await dataFetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/api/shop/like?" + params, {
                method: "POST",
                cache: "no-cache",
                credentials: "include",
@@ -80,7 +80,7 @@ export default function Product({ product }: { product: ProductItem }) {
                src={
                   product.imageName === undefined
                      ? templateImg
-                     : "http://127.0.0.1:7196/images/preview/" + product.imageName
+                     : process.env.NEXT_PUBLIC_BACKEND_URL + "/images/preview/" + product.imageName
                }
                alt={"Image for product"}
                fill

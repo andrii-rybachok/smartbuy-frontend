@@ -10,7 +10,10 @@ import Sidebar from "@/app/components/sidebar/sidebar";
 import Breadcrumbs from "@/app/components/breadcrumbs/Breadcrumbs";
 import CategoriesColumn from "@/app/components/categories/categoriesColumn";
 async function getCategories() {
-   const res = await fetch("http://127.0.0.1:7196/api/shop/categories", { next:{revalidate:1800},cache:"no-cache"});
+   const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/api/shop/categories", {
+      next: { revalidate: 1800 },
+      cache: "no-cache",
+   });
    return res.json();
 }
 
@@ -36,12 +39,12 @@ export default async function Categories() {
                               />
                            </svg>
                         ),
-                        path:"/"
+                        path: "/",
                      },
                      {
-                        label:"Каталог",
-                        path:"/categories"
-                     }
+                        label: "Каталог",
+                        path: "/categories",
+                     },
                   ],
                }}
             />
@@ -63,7 +66,7 @@ export default async function Categories() {
                               src={
                                  glCategory.image == undefined
                                     ? tablets
-                                    : "http://127.0.0.1:7196/images/globalCategory/" + glCategory.image
+                                    : process.env.NEXT_PUBLIC_BACKEND_URL + "/images/globalCategory/" + glCategory.image
                               }
                               alt={"image for global category"}
                               fill
@@ -72,9 +75,11 @@ export default async function Categories() {
                         </div>
                         <div className={styles.categories + " " + helveticaRoman.className} key={glCategory.id}>
                            <Link href={"/categories/" + glCategory.id} prefetch={false}>
-                              <h2 className={styles.categoriesName + " " + helveticaMedium.variable}>{glCategory.name}</h2>
+                              <h2 className={styles.categoriesName + " " + helveticaMedium.variable}>
+                                 {glCategory.name}
+                              </h2>
                            </Link>
-                           <CategoriesColumn categories={glCategory.categories}/>
+                           <CategoriesColumn categories={glCategory.categories} />
                         </div>
                      </article>
                      <svg
