@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 
 export async function POST(request: NextRequest) {
    const token = request.cookies.get("refreshToken");
-   const res = await fetch("http://127.0.0.1:7196/api/shop/refresh-token", {
+   const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/api/shop/refresh-token", {
       credentials: "include",
       method: "POST",
       cache: "no-cache",

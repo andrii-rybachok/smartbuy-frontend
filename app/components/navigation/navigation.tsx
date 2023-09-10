@@ -16,7 +16,9 @@ export default function Navigation() {
             </div>
             <ul className={styles.navList}>
                <li>
-                  <Link href={"/"} className={styles.headerText}>Головна</Link>
+                  <Link href={"/"} className={styles.headerText}>
+                     Головна
+                  </Link>
                </li>
                <li>
                   <Link href={"/categories"} className={styles.headerText}>
@@ -24,10 +26,14 @@ export default function Navigation() {
                   </Link>
                </li>
                <li>
-                  <Link href={"/identity/login"} className={styles.headerText}>про нас</Link>
+                  <Link href={"#"} className={styles.headerText}>
+                     про нас
+                  </Link>
                </li>
                <li>
-                  <Link href={"/identity/register"} className={styles.headerText}>контакти</Link>
+                  <Link href={"#"} className={styles.headerText}>
+                     контакти
+                  </Link>
                </li>
             </ul>
             <Searchbar />
@@ -47,7 +53,6 @@ export default function Navigation() {
                </svg>
             </Link>
             <Profile />
-            
          </div>
       </nav>
    );

@@ -1,8 +1,7 @@
 
-
 export async function POST(request: Request) {
    const data = await request.json();
-   const res = await fetch("http://127.0.0.1:7196/api/shop/authenticate", {
+   const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/api/shop/authenticate", {
       credentials: "include",
       method: "POST",
       cache: "no-cache",

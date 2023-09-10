@@ -1,4 +1,5 @@
 "use client";
+import styles from "../login/login.module.css";
 
 import { useState, useRef } from "react";
 import Register from "./register";
@@ -22,7 +23,7 @@ export default function Register() {
    }
    async function Register({ cred }: { cred: Register }) {
       if (credentails.password === credentails.confirmPassword) {
-         const res = await fetch("http://localhost:3000/api/identity/register", {
+         const res = await fetch(process.env.NEXT_PUBLIC_LOCAL_API_URL + "/api/identity/register", {
             credentials: "include",
             method: "POST",
             headers: {
@@ -45,22 +46,52 @@ export default function Register() {
       }
    }
    return (
-      <form action={() => Register({ cred: credentails })}>
-         <div>
-            <label htmlFor="firstName">First name</label>
-            <input type="text" name="firstName" onChange={handleChange} required minLength={5} maxLength={20} />
-         </div>
-         <div>
-            <label htmlFor="lastName">Last name</label>
-            <input type="text" name="lastName" onChange={handleChange} required minLength={5} maxLength={20} />
-         </div>
-         <div>
-            <label htmlFor="email">Email</label>
-            <input type="text" name="email" onChange={handleChange} required minLength={5} maxLength={40} />
-         </div>
-         <div>
-            <label htmlFor="password">Password</label>
+      <div className={styles.center}>
+         <form action={() => Register({ cred: credentails })} className={styles.loginFrom}>
+            <label htmlFor="firstName" className={styles.label}>
+               Ім`я
+            </label>
             <input
+               className={styles.input}
+               type="text"
+               name="firstName"
+               onChange={handleChange}
+               required
+               minLength={5}
+               maxLength={20}
+            />
+
+            <label htmlFor="lastName" className={styles.label}>
+               Прізвище
+            </label>
+            <input
+               className={styles.input}
+               type="text"
+               name="lastName"
+               onChange={handleChange}
+               required
+               minLength={5}
+               maxLength={20}
+            />
+
+            <label htmlFor="email" className={styles.label}>
+               Електрона ошта
+            </label>
+            <input
+               className={styles.input}
+               type="text"
+               name="email"
+               onChange={handleChange}
+               required
+               minLength={5}
+               maxLength={40}
+            />
+
+            <label htmlFor="password" className={styles.label}>
+               Пароль
+            </label>
+            <input
+               className={styles.input}
                type="password"
                name="password"
                onChange={handleChange}
@@ -68,22 +99,24 @@ export default function Register() {
                minLength={6}
                maxLength={20}
             />
-         </div>
-         <div>
-            <label htmlFor="confirmPassword">Confirm password</label>
+
+            <label htmlFor="confirmPassword" className={styles.label}>
+               Підтвердження паролю
+            </label>
             <input
                type="password"
+               className={styles.input}
                name="confirmPassword"
                onChange={handleChange}
                required
                minLength={6}
                maxLength={20}
             />
-         </div>
-         <div>
+
             <span ref={errorField}></span>
-         </div>
-         <input type="submit" value="Register" />
-      </form>
+
+            <input type="submit" value="Реєстрація" className={styles.button} />
+         </form>
+      </div>
    );
 }
