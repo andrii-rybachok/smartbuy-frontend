@@ -83,14 +83,14 @@ export default async function Home() {
          <div className={styles.mainSection}>
             <section>
                <ProductGallery tittle="Акційні товари" products={promotedProducts} />
-               <ProductGallery tittle="Останні переглянуті" products={promotionalProducts} />
-               <ProductGallery tittle="Ваші вподобання" products={promotionalProducts} />
+               <ProductGallery tittle="Останні переглянуті" products={promotedProducts} />
+               <ProductGallery tittle="Ваші вподобання" products={promotedProducts} />
 
                <div className={styles.bannerBlock}>
                   <Image src={bannerImg} alt={"banner img"} quality={100} fill />
                   <button className={styles.bannerBtn + " " + helveticaRoman.className}>Відкрити каталог</button>
                </div>
-               <ProductGallery tittle="підібрано для вас" products={promotionalProducts} />
+               <ProductGallery tittle="підібрано для вас" products={promotedProducts} />
             </section>
          </div>
 
