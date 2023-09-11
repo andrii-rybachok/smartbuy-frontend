@@ -11,7 +11,6 @@ import Breadcrumbs from "@/app/components/breadcrumbs/Breadcrumbs";
 import CategoriesColumn from "@/app/components/categories/categoriesColumn";
 async function getCategories() {
    const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/api/shop/categories", {
-      next: { revalidate: 1800 },
       cache: "no-cache",
    });
    return res.json();

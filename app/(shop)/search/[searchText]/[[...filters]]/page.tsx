@@ -42,6 +42,7 @@ async function FilterProducts(searchString: string, stringFilters: string) {
          headers: {
             "Content-Type": "application/json",
          },
+         cache: "no-cache",
       });
       return res.json();
    }
@@ -63,7 +64,7 @@ export default async function SearchPage({
    }
    return (
       <div>
-         <h1 className={helveticaRoman.className + " " + styles.searchParams}>Результати пошуку "{text}"</h1>
+         <h1 className={helveticaRoman.className + " " + styles.searchParams}>Результати пошуку &quot;{text}&quot;</h1>
          <div>
             <CatalogSection filters={response.filters} products={response.products} />
          </div>
