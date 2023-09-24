@@ -23,7 +23,8 @@ export default function PriceFilter({ minPrice, maxPrice }: { minPrice: number; 
    let rangeMin = minPrice;
    let rangeMax = maxPrice;
    if (pathname.search(regexForPrice) != -1) {
-      let priceInStr = pathname.match("(Price.{0,};)");
+      var regex=/Price=\d+-\d+;/;
+      let priceInStr = pathname.match(regex);
       let values = priceInStr?.at(0)?.split("-");
       let routeMinPrice = Number(values?.at(0)?.split("=").at(1));
       // @ts-ignore
@@ -32,9 +33,13 @@ export default function PriceFilter({ minPrice, maxPrice }: { minPrice: number; 
       if (minPrice != undefined && maxPrice != undefined) {
          priceFilter.minPrice = routeMinPrice;
          priceFilter.maxPrice = routeMaxPrice;
-         rangeMin = routeMinPrice;
-         rangeMax = routeMaxPrice;
+         rangeMin=routeMinPrice;
+         rangeMax=routeMaxPrice
       }
+      // if (maxPrice == 0 && minPrice == 0) {
+      //    rangeMin = routeMinPrice;
+      //    rangeMax = routeMaxPrice;
+      // }
    }
    const [filter, setFilter] = useState<FilterPrice>(priceFilter);
    const [errors, setErrors] = useState<string[]>([]);
