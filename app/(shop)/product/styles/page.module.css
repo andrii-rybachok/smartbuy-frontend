@@ -1,0 +1,184 @@
+.main {
+    display: flex;
+    gap: 130px;
+}
+
+.productInfo {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.name {
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    color: #272722;
+    margin-bottom: 8px;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+}
+
+.reviews {
+    color: var(--not_main_TEXT, #777);
+    margin-left: 9px;
+    margin-right: 29px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.price {
+    color: #272722;
+    font-weight: 550;
+    font-size: 26px;
+    margin-right: 27px;
+}
+
+.m40 {
+    margin: 40px 0;
+}
+
+.buyBtn {
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    border: 0;
+    border-radius: 5px;
+    background: var(--main_green, #0EA47A);
+    font-size: 20px;
+    font-weight: 400;
+    margin-right: 20px;
+    transition: 0.2s;
+}
+
+.cartBtn {
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--main_green, #0EA47A);
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 5px;
+    border: 1px solid #0EA47A;
+    background: transparent;
+    margin-right: 27px;
+    transition: 0.2s;
+
+}
+
+.buyBtn:hover,
+.cartBtn:hover,
+.like:hover {
+    cursor: pointer;
+}
+
+.buyBtn:hover {
+    background-color: #0B8A67;
+}
+
+.cartBtn:hover {
+    border-color: #0B8A67;
+    color: #0b8a67;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info>div {
+    display: flex;
+    gap: 16px;
+    height: 30px;
+    align-items: center;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.city {
+    text-decoration: underline;
+}
+
+.commBlock {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.commHeader {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.comment {
+    width: 640px;
+    border-top: 1px solid #272727;
+}
+
+.commTop {
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+
+}
+
+.profileImage {
+    width: 40px;
+    height: 40px;
+    position: relative;
+
+
+}
+
+/* .profileImage>img {
+    object-fit: contain;
+    object-position: center;
+} */
+.commInfo {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 10px;
+    height: 14px;
+    align-items: center;
+}
+
+.profileInfo {
+    width: 480px;
+    height: 40px;
+    align-items: center;
+}
+
+.reaction {
+    display: flex;
+    gap: 20px;
+}
+
+.reaction>svg:hover {
+    cursor: pointer;
+}
+
+.commText {
+    width: 580px;
+    margin-left: auto;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #272722;
+}
+
+.products {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+}

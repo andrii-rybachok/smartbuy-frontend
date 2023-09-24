@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./styles/priceFilter.module.css";
 import filterStyles from "./styles/filter.module.css";
 
-import { addFilter } from "./filter";
+import { addFilter, deleteFilter } from "./filter";
 import FilterPrice from "./models/FilterPrice";
 import FilterValue from "./models/FilterValue";
 
@@ -32,8 +32,6 @@ export default function PriceFilter({ minPrice, maxPrice }: { minPrice: number; 
       if (minPrice != undefined && maxPrice != undefined) {
          priceFilter.minPrice = routeMinPrice;
          priceFilter.maxPrice = routeMaxPrice;
-      }
-      if (maxPrice == 0 && minPrice == 0) {
          rangeMin = routeMinPrice;
          rangeMax = routeMaxPrice;
       }
@@ -86,6 +84,19 @@ export default function PriceFilter({ minPrice, maxPrice }: { minPrice: number; 
       linkUrl = addFilter(priceValue, filterPart, linkUrl, filter.name);
       router.replace(linkUrl);
    }
+   function handleClear() {
+      let decaodedPathName = decodeURIComponent(pathname);
+      let linkUrl = decaodedPathName;
+      let urlParts = linkUrl.split("/");
+      let filterPart = "";
+      if (urlParts.length > 3) {
+         // @ts-ignore
+         filterPart = urlParts.at(urlParts.length - 1);
+      }
+      let priceValue: FilterValue = new FilterValue(filter.minPrice, filter.maxPrice, undefined, "");
+      linkUrl = deleteFilter(priceValue, filterPart, linkUrl, filter.name);
+      router.replace(linkUrl);
+   }
    function setLeftValue(event: any) {
       let value = parseInt(event.target.value);
       if (value < filter.maxPrice) {
@@ -132,6 +143,7 @@ export default function PriceFilter({ minPrice, maxPrice }: { minPrice: number; 
                }
             />
             <button onClick={handleOk}>OK</button>
+            <button onClick={handleClear}>X</button>
          </div>
          <div className={styles.range}>
             <div className={styles["range-slider"]}>

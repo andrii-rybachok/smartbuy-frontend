@@ -17,11 +17,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <html lang="en">
          <body>
             <AuthorizationProvider isAuthorized={loggedIn}>
-                  <Navigation />
-               <main className={styles.container}>
-                  {children}
-               </main>
-                  <Footer />
+               <Navigation />
+               <main className={styles.container}>{children}</main>
+               <Footer />
             </AuthorizationProvider>
          </body>
       </html>

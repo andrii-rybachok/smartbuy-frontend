@@ -1,0 +1,42 @@
+.galleryBlock {
+    width: 530px;
+    height: 310px;
+    display: flex;
+    gap: 20px;
+}
+
+.smallImages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.imageBlock {
+    width: 420px;
+    height: 310px;
+    position: relative;
+}
+
+.imageBlock>img {
+    object-fit: contain;
+    object-position: center;
+}
+
+.smallImage {
+    width: 90px;
+    height: 50px;
+    position: relative;
+}
+
+.smallImage>img {
+    object-fit: contain;
+    object-position: center;
+}
+
+.smallImage:hover {
+    cursor: pointer;
+}
+
+.imageBlock:hover {
+    cursor: pointer;
+}
